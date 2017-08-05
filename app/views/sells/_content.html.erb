@@ -1,0 +1,6 @@
+<td><%= sell.name %></td>
+<td><%= sell.value %></td>
+<td><%= sell.quantity %></td>
+<td><%= link_to 'Show', sell %></td>
+<td><%= link_to 'Edit', edit_sell_path(sell) %></td>
+<td><%= link_to 'Destroy', sell, method: :delete, data: { confirm: 'Are you sure?' }, remote:true %></td>

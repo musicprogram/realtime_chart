@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sells</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="lista">
+    <% @sells.each do |sell| %>
+      <%= render 'filas',  sell: sell %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sell', new_sell_path, remote:true %>
+<div id="form"></div>
+
+
+<div id="torta">
+  <%= render 'sells/grafica' %>
+</div>
+
+
+
+<%= subscribe_to sells_path %>
