@@ -1,24 +1,44 @@
-# README
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+development:
+  <<: *default
+  database: db/development.sqlite3
 
-Things you may want to cover:
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
 
-* Ruby version
+production:
+  <<: *default
+  database: db/production.sqlite3
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  template: template0
+  username: postgres
+  password: postgres
 
-* Database initialization
+development:
+  <<: *default
+  database: make_pusher_development
 
-* How to run the test suite
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: make_pusher_test
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+production:
+  <<: *default
+  database: make_pusher_production
